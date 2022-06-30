@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_add_black_24dp.xml" value="0.239" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.24" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/activity_new_sensed.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.2328125" />
       </map>
     </option>

@@ -12,6 +12,6 @@ interface ActivityDao {
     @Query("SELECT * FROM activity")
     fun getActivity(): Flow<List<Activity>>
 
-    @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun insert(activity: Activity)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(activity: Activity)
 }
