@@ -22,11 +22,11 @@ class NewSensedActivity : AppCompatActivity() {
         button.setOnClickListener{
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editActivityView.text)){
-                setResult(Activity.RESULT_CANCELED, replyIntent)
+                setResult(RESULT_CANCELED, replyIntent)
             }else{
                 val activity = editActivityView.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY, activity)
-                setResult(Activity.RESULT_OK, replyIntent)
+                setResult(RESULT_OK, replyIntent)
             }
             finish()
         }

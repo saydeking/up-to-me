@@ -1,5 +1,6 @@
 package com.example.uptome
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,12 +18,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = SensorListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        activityViewModel.allActivity.observe(owner = this) { activities ->
+        activityViewModel.allActivity.observe(this) { activities ->
             activities.let { adapter.submitList(it) }
         }
 
@@ -36,9 +38,9 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == newSensedActivityRequestCode && resultCode == Activity.RESULT_OK) {
+        if (requestCode == newSensedActivityRequestCode && resultCode == android.app.Activity.RESULT_OK) {
             data?.getStringExtra(NewSensedActivity.EXTRA_REPLY)?.let { reply ->
-                val activity = Activity(reply)
+                val activity = Activity(reply,true, "NAN", "NAN")
                 activityViewModel.insert(activity)
             }
         } else{
